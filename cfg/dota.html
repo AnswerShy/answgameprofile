@@ -1,0 +1,49 @@
+<style>
+    * {color: white;}
+    
+    *::-webkit-scrollbar {
+        width: 1px;
+    }
+    *::-webkit-scrollbar-thumb {
+        background: transparent;
+        border-radius: 60px;
+    }
+    .buttonCfg {
+        color: white;
+        background-color: rgba(129, 129, 129, 0.5);
+        border: 0;
+        border-radius: 20px;
+        width: 100%;
+    }
+    .buttonCfg:hover {
+        cursor: pointer;
+        background-color: rgba(129, 129, 129, 1);
+    }
+</style>
+
+<pre id="pre">
+con_enable 1
+net_graph 1
+
+//neutral creeps color
+dota_neutral_color_r 0.6
+dota_neutral_color_g 0
+dota_neutral_color_b 0.7
+
+//enemy towers and creeps
+dota_enemy_color_r 1
+dota_enemy_color_g 1
+dota_enemy_color_b 1
+
+//friendly towers and creeps
+dota_friendly_color_r 0.75
+dota_friendly_color_g 0.75
+dota_friendly_color_b 0.75
+</pre>
+
+<script>
+    function clickToCopy(){
+        window.getSelection().selectAllChildren(document.getElementById('pre'));
+        document.execCommand("copy");
+    }
+</script>

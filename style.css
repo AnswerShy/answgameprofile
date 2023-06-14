@@ -1,0 +1,109 @@
+:root {
+    --maincol: rgb(29, 29, 28);
+    --panelHeight: 75vh;
+    --panelWidth: 98%;
+    --blockWidth: 25vw;
+}
+
+* {
+    transition: 400ms;
+    border-radius: 10px;
+    font-family: 'Lucida Sans Unicode';
+    margin: 1vh auto;
+}
+
+*::-webkit-scrollbar {
+    width: 5px;
+}
+*::-webkit-scrollbar-thumb {
+    background: var(--maincol);
+    border-radius: 60px;
+}
+
+body {
+    background-color: rgb(45, 45, 45);
+    color: white;
+    margin: 0;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+header {
+    width: var(--panelWidth);
+    display: grid;
+    grid-template-columns: 30% 50%;
+    background-color: var(--maincol);
+    box-shadow: 0px 0px 15px black;
+    padding: 2vh 0;
+}
+
+p {
+    text-align: center;
+}
+
+.background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: var(--panelHeight);
+    width: var(--panelWidth);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.bgVideo {
+    height: var(--panelHeight);
+    width: var(--panelWidth);
+    position: absolute;
+    z-index: 0;
+}
+
+.block {
+    z-index: 1;
+    position: relative;
+    background-color: var(--maincol);
+
+    left: calc(var(--panelWidth) - 65%);
+
+    height: fit-content;
+    width: var(--blockWidth);
+    padding: 2vh 2vw;
+
+    font-size: 2vh;
+    
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.block:hover {
+    transition: 100ms;
+    box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.5);
+}
+
+.config {
+    transition: 350ms;
+
+    margin: 0 auto;
+    border: 0;
+
+    height: 0vh;
+    width: var(--blockWidth);
+    
+    background-color: rgb(39, 39, 39);
+}
+
+.buttonCfg {
+    color: white;
+    background-color: rgba(129, 129, 129, 0.5);
+    border: 0;
+    width: var(--blockWidth);
+}
+
+.buttonCfg:hover {
+    cursor: pointer;
+    background-color: rgba(129, 129, 129, 1);
+}

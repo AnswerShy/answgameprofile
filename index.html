@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <meta charset="utf-8"\>
+        <title>Game Profile</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <div style="grid-column-start: 1;">
+            <p><a href="https://steamcommunity.com/id/frnj1/">ShyOwl profile</a></p>
+            </div>
+            <div style="grid-column-start: 2;">
+                <p><a href="#">Trade Link</a></p>
+            </div>
+        </header>
+        <!-- CS:GO -->
+        <div class="background" id="cs" style="background-image: url('https://cdn.akamai.steamstatic.com/steam/apps/730/header.jpg?t=1683566799'); display: none;">
+            <div class="block" id="csBlock" style="top: 40%;">
+                <p>CS:GO cfg</p>
+                <button class="buttonCfgCloseOpen" id="csBut">show config</button>
+                <iframe class="config" src="cs.html" id="csCfg" style="height: 0vh;"></iframe>
+                </div>
+            </div>
+        </div>
+        <!-- DOTA -->
+        <div class="background" id="dota">
+            <iframe class="bgVideo" src="https://www.youtube.com/embed/_yBAYVaHCV4?autoplay=1;volume=10%" frameborder="0"></iframe>
+            <div class="block" id="dotaBlock" style="top: 40%;">
+                <p>DotA cfg</p>
+
+                <button class="buttonCfg" id="dotaBut">show config</button>
+
+                <iframe class="config" src="dota.html" id="dotaCfg" style="height: 0vh;"></iframe>
+
+                <button class="buttonCfg" id="dotaCfgCopy">Copy cfg</button>
+            </div>
+        </div>        
+    </body>
+    <script>
+        function classBlockMovement(blockName) {
+            if (document.getElementById(blockName + 'Block').style.top == '40%'){
+                document.getElementById(blockName + 'Block').style.top = '10%';
+            }
+            else {
+                document.getElementById(blockName + 'Block').style.top = '40%'
+            }
+        }
+
+        document.getElementById('csBut').addEventListener('click', () => {
+            if (document.getElementById('csCfg').style.height == '0vh') {
+                document.getElementById('csCfg').style.height = 'calc(var(--panelHeight) - 30vh)'
+            }
+            else {document.getElementById('csCfg').style.height = '0vh'}
+            classBlockMovement('cs')
+        })
+
+        document.getElementById('dotaBut').addEventListener('click', () => {
+            if (document.getElementById('dotaCfg').style.height == '0vh') {
+                document.getElementById('dotaCfg').style.height = 'calc(var(--panelHeight) - 30vh)'
+            }
+            else {document.getElementById('dotaCfg').style.height = '0vh'}
+            classBlockMovement('dota')
+        })
+
+        document.getElementById('dotaCfgCopy').addEventListener('click', () => {
+            let a = document.getElementById('dotaCfg').contentWindow.clickToCopy()
+        })
+    </script>
+</html>

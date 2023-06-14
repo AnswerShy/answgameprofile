@@ -2,7 +2,7 @@
     --maincol: rgb(29, 29, 28);
     --panelHeight: 75vh;
     --panelWidth: 98%;
-    --blockWidth: 25vw;
+    --blockWidth: 15vw;
 }
 
 * {
@@ -61,6 +61,7 @@ p {
     width: var(--panelWidth);
     position: absolute;
     z-index: 0;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .block {

@@ -9,21 +9,21 @@
             <div style="grid-column-start: 1;">
             <p><a href="https://steamcommunity.com/id/frnj1/">ShyOwl profile</a></p>
             </div>
-            <div style="grid-column-start: 2;">
+            <!-- <div style="grid-column-start: 2;">
                 <p><a href="#">Trade Link</a></p>
-            </div>
+            </div> -->
         </header>
         <!-- CS:GO -->
-        <div class="background" id="cs" style="background-image: url('https://cdn.akamai.steamstatic.com/steam/apps/730/header.jpg?t=1683566799'); display: none;">
+        <section class="background" id="cs" style="background-image: url('https://cdn.akamai.steamstatic.com/steam/apps/730/header.jpg?t=1683566799'); display: none;">
             <div class="block" id="csBlock" style="top: 40%;">
                 <p>CS:GO cfg</p>
                 <button class="buttonCfgCloseOpen" id="csBut">show config</button>
                 <iframe class="config" src="cfg/cs.html" id="csCfg" style="height: 0vh;"></iframe>
                 </div>
             </div>
-        </div>
+        </section>
         <!-- DOTA -->
-        <div class="background" id="dota">
+        <section class="background" id="dota">
             <iframe class="bgVideo" src="https://www.youtube.com/embed/_yBAYVaHCV4?autoplay=1;volume=10%" frameborder="0"></iframe>
             <div class="block" id="dotaBlock" style="top: 40%;">
                 <p>DotA cfg</p>
@@ -34,7 +34,16 @@
 
                 <button class="buttonCfg" id="dotaCfgCopy">Copy cfg</button>
             </div>
-        </div>        
+        </section>
+        <!--Worms:A-->
+        <section class="background" id="worms" style="background-image: url('https://c4.wallpaperflare.com/wallpaper/216/907/750/worms-armageddon-wallpaper-preview.jpg');">
+            <div class="block" id="wormsBlock" style="top: 40%;">
+                <p>Worms Armageddon</p>
+
+                <a href="cfg/wa/wormsFullHDPatch.7z"><button class="buttonCfg" id="wapatch">Download W:A FullHD Patch</button></a>
+                <p class="tip" id="waPatchTip" style="display: none;">*All files copy to game folder*</p>
+            </div>
+        </section>        
     </body>
     <script>
         function classBlockMovement(blockName) {
@@ -46,6 +55,7 @@
             }
         }
 
+        //CS:GO
         document.getElementById('csBut').addEventListener('click', () => {
             if (document.getElementById('csCfg').style.height == '0vh') {
                 document.getElementById('csCfg').style.height = 'calc(var(--panelHeight) - 30vh)'
@@ -54,6 +64,7 @@
             classBlockMovement('cs')
         })
 
+        //DOTA
         document.getElementById('dotaBut').addEventListener('click', () => {
             if (document.getElementById('dotaCfg').style.height == '0vh') {
                 document.getElementById('dotaCfg').style.height = 'calc(var(--panelHeight) - 30vh)'
@@ -64,6 +75,11 @@
 
         document.getElementById('dotaCfgCopy').addEventListener('click', () => {
             let a = document.getElementById('dotaCfg').contentWindow.clickToCopy()
+        })
+        
+        //WA
+        document.getElementById('wapatch').addEventListener('click', () =>{
+            document.getElementById('waPatchTip').style.display = 'inline';
         })
     </script>
 </html>

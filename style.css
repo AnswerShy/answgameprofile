@@ -31,6 +31,12 @@ a {
     text-decoration: none;
 }
 
+.tip {
+    color:rgba(255, 255, 255, 0.5);
+    font-size: 1.7vh;
+    font-family: monospace;
+}
+
 a:hover {
     text-decoration: underline;
 }
@@ -42,6 +48,7 @@ header {
     background-color: var(--maincol);
     box-shadow: 0px 0px 15px black;
     padding: 2vh 0;
+    margin: 0 auto;
 }
 
 p {
@@ -49,6 +56,7 @@ p {
 }
 
 .background {
+    margin: 2vh auto;
     background-repeat: no-repeat;
     background-size: cover;
     height: var(--panelHeight);

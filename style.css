@@ -126,7 +126,7 @@ header {
     position: absolute;
     margin: 0;
     z-index: 0;
-    height: var(--blockHeight);
+    height: calc(var(--blockHeight) + 6vh);
     width: var(--blockWidth);
     overflow: hidden;
 }
@@ -150,6 +150,7 @@ header {
 }
 
 .blockInfo {
+    height: var(--blockHeight);
     position: relative;
     z-index: 1;
     padding: 2vh 2vw;

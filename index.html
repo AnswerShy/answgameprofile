@@ -23,9 +23,9 @@
             <!--Worms:A-->
             <section class="block" id="wormsBlock">
                 <div class="blockBG">
-                    <iframe class="bgVideo" src="https://www.youtube-nocookie.com/embed/2c8BVUb9sxY?autoplay=0" frameborder="0" allow="autoplay;"></iframe>
+                    <iframe class="bgVideo" id="WAVid" src="https://www.youtube-nocookie.com/embed/2c8BVUb9sxY?autoplay=0" frameborder="0" allow="autoplay;"></iframe>
                 </div>
-                <div class="blockInfo">
+                <div class="blockInfo" id="WAInfoBlock">
                     <p class="blockDesc">Worms Armageddon</p>
                     <a href="cfg/wa/wormsFullHDPatch.7z"><button class="buttonCfg" id="wapatch">Download W:A FullHD Patch</button></a>
                     <p class="tip" id="waPatchTip" style="display: none;">*All files copy to game folder*</p>
@@ -34,10 +34,10 @@
             </section>
             <!-- DOTA -->
             <section class="block">
-                <div class="blockBG" id="dotaBlock">
-                    <iframe class="bgVideo" src="https://www.youtube-nocookie.com/embed/_yBAYVaHCV4?autoplay=0" frameborder="0" allow="autoplay;"></iframe>
+                <div class="blockBG" id="dotaBG">
+                    <iframe class="bgVideo" id="dotaVid" src="https://www.youtube-nocookie.com/embed/_yBAYVaHCV4?autoplay=0" frameborder="0" allow="autoplay;"></iframe>
                 </div>
-                <div class="blockInfo">
+                <div class="blockInfo" id="dotaInfoBlock">
                     <p class="blockDesc">DotA cfg</p>
                     <button class="buttonCfg" id="dotaBut">show config</button>
                     <iframe class="config" src="cfg/dota.html" id="dotaCfg" style="height: 0vh;"></iframe>
@@ -57,6 +57,23 @@
         
     </body>
     <script>
+        //For All
+        function playBG(game) {
+            let gameSel = game + 'Vid'
+            var bvideo = document.getElementById(gameSel)
+            console.log(gameSel, 'is playng')
+            bvideo.src = bvideo.src.replace('autoplay=0', 'autoplay=1')
+        }
+
+        function pauseBG(game) {
+            let gameSel = game + 'Vid'
+            var bvideo = document.getElementById(gameSel)
+            console.log(gameSel, 'is`nt playng')
+            bvideo.src = bvideo.src.replace('autoplay=1', 'autoplay=0')
+        }
+
+
+
         //CS:GO
         document.getElementById('csBut').addEventListener('click', () => {
             if (document.getElementById('csCfg').style.height == '0vh') {
@@ -68,11 +85,11 @@
         //DOTA
         document.getElementById('dotaBut').addEventListener('click', () => {
             if (document.getElementById('dotaCfg').style.height == '0vh') {
-                document.getElementById('dotaBlock').style.height = 'calc(var(--blockHeight) + 40vh)'
+                document.getElementById('dotaBG').style.height = 'calc(var(--blockHeight) + 40vh)'
                 document.getElementById('dotaCfg').style.height = 'calc(var(--panelHeight) - 30vh)'
             }
             else {
-                document.getElementById('dotaBlock').style.height = 'calc(var(--blockHeight)'
+                document.getElementById('dotaBG').style.height = 'calc(var(--blockHeight)'
                 document.getElementById('dotaCfg').style.height = '0vh'
             }
         })
@@ -80,10 +97,15 @@
         document.getElementById('dotaCfgCopy').addEventListener('click', () => {
             let a = document.getElementById('dotaCfg').contentWindow.clickToCopy()
         })
-        
+
+        document.getElementById('dotaInfoBlock').addEventListener('mouseenter', () => {playBG('dota')})
+        document.getElementById('dotaInfoBlock').addEventListener('mouseleave', () => {pauseBG('dota')})
+
         //WA
         document.getElementById('wapatch').addEventListener('click', () =>{
             document.getElementById('waPatchTip').style.display = 'inline';
         })
+        document.getElementById('WAInfoBlock').addEventListener('mouseenter', () => {playBG('WA')})
+        document.getElementById('WAInfoBlock').addEventListener('mouseleave', () => {pauseBG('WA')})
     </script>
 </html>
